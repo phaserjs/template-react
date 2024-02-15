@@ -1,8 +1,8 @@
-import Phaser from 'phaser';
 import { Boot } from './scenes/Boot';
 import { Game } from './scenes/Game';
 import { GameOver } from './scenes/GameOver';
 import { MainMenu } from './scenes/MainMenu';
+import Phaser from 'phaser';
 import { Preloader } from './scenes/Preloader';
 
 // Find out more information about the Game Config at:
@@ -13,10 +13,6 @@ const config = {
     height: 768,
     parent: 'game-container',
     backgroundColor: '#028af8',
-    scale: {
-        // mode: Phaser.Scale.FIT,
-        // autoCenter: Phaser.Scale.CENTER_BOTH
-    },
     scene: [
         Boot,
         Preloader,
@@ -25,11 +21,11 @@ const config = {
         GameOver
     ]
 };
-let game_instance = null;
-const start_game = (parent) => {
-    game_instance = new Phaser.Game({...config, parent: parent});
-    return game_instance;
+
+const StartGame = (parent) => {
+
+    return new Phaser.Game({...config, parent: parent});
+
 }
 
-export { game_instance }
-export default start_game;
+export default StartGame;

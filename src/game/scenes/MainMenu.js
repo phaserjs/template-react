@@ -1,22 +1,16 @@
-import { Scene } from 'phaser';
 import { EventBus } from '../EventBus';
+import { Scene } from 'phaser';
 
-export class MainMenu extends Scene {
+export class MainMenu extends Scene
+{
+    logoTween;
 
-    logo_tween;
-
-    constructor()
+    constructor ()
     {
         super('MainMenu');
     }
 
-    init()
-    {
-        // Restart tween
-        this.logo_tween = null;
-    }
-
-    create()
+    create ()
     {
         this.add.image(512, 384, 'background');
 
@@ -27,48 +21,49 @@ export class MainMenu extends Scene {
             stroke: '#000000', strokeThickness: 8,
             align: 'center'
         }).setDepth(100).setOrigin(0.5);
-
-        this.input.once('pointerdown', () => {     
-            this.changeScene();
-        });
         
         EventBus.emit('current-scene-ready', this);
     }
 
-    changeScene()
+    changeScene ()
     {
+        if (this.logoTween)
+        {
+            this.logoTween.stop();
+            this.logoTween = null;
+        }
+
         this.scene.start('Game');
     }
 
-    moveLogo(callback)
+    moveLogo (vueCallback)
     {
-        if (this.logo_tween)
+        if (this.logoTween)
         {
-            if (this.logo_tween.isPlaying())
+            if (this.logoTween.isPlaying())
             {
-                this.logo_tween.pause();
+                this.logoTween.pause();
             }
             else
             {
-                this.logo_tween.play();
+                this.logoTween.play();
             }
-        } else {
-
-            this.logo_tween = this.tweens.add({
+        }
+        else
+        {
+            this.logoTween = this.tweens.add({
                 targets: this.logo,
-                y: 200,
-                x: 600,
-                duration: 2000,
-                ease: 'Sine.easeInOut',
+                x: { value: 750, duration: 3000, ease: 'Back.easeInOut' },
+                y: { value: 80, duration: 1500, ease: 'Sine.easeOut' },
                 yoyo: true,
                 repeat: -1,
                 onUpdate: () => {
-                    if (callback) {
-                        callback({ x: Math.floor(this.logo.x), y: Math.floor(this.logo.y) })
-                    }
+                    vueCallback({
+                        x: Math.floor(this.logo.x),
+                        y: Math.floor(this.logo.y)
+                    });
                 }
             });
         }
     }
-
 }
