@@ -9,7 +9,7 @@ function App() {
     // Phaser game instance
     const [scene, setScene] = useState(null);
 
-    const phaser_ref = useRef();
+    const phaserRef = useRef();
 
     // Update the current active scene
     const setCurrentActiveScene = (scene) => {
@@ -43,7 +43,7 @@ function App() {
 
     return (
         <div id="app">
-            <PhaserGame ref={phaser_ref} currentActiveScene={setCurrentActiveScene} />
+            <PhaserGame ref={phaserRef} currentActiveScene={setCurrentActiveScene} />
             <div>
                 <div>
                     <button className="button-change-scene" onClick={changeScene}>Change Scene</button>

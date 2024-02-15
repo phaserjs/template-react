@@ -14,6 +14,12 @@
         "url": "https://github.com/phaserjs/template-react/issues"
     },
     "homepage": "https://github.com/phaserjs/template-react#readme",
+    "keywords": [
+        "phaser",
+        "phaser3",
+        "react",
+        "vite"
+    ],
     "scripts": {
         "dev": "vite --config vite/config.dev.mjs",
         "build": "vite build --config vite/config.prod.mjs",
