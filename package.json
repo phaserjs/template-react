@@ -22,9 +22,7 @@
     ],
     "scripts": {
         "dev": "vite --config vite/config.dev.mjs",
-        "build": "vite build --config vite/config.prod.mjs",
-        "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-        "preview": "vite preview"
+        "build": "vite build --config vite/config.prod.mjs"
     },
     "dependencies": {
         "phaser": "^3.70.0",
