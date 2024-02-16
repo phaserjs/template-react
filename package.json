@@ -1,6 +1,6 @@
 {
     "name": "template-react",
-    "description": "A Phaser 3 template using React.",
+    "description": "A Phaser 3 project template that demonstrates React communication and uses Vite for bundling.",
     "version": "0.0.1",
     "type": "module",
     "repository": {
