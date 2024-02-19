@@ -36,7 +36,7 @@ export class MainMenu extends Scene
         this.scene.start('Game');
     }
 
-    moveLogo (vueCallback)
+    moveLogo (reactCallback)
     {
         if (this.logoTween)
         {
@@ -58,10 +58,13 @@ export class MainMenu extends Scene
                 yoyo: true,
                 repeat: -1,
                 onUpdate: () => {
-                    vueCallback({
-                        x: Math.floor(this.logo.x),
-                        y: Math.floor(this.logo.y)
-                    });
+                    if (reactCallback)
+                    {
+                        reactCallback({
+                            x: Math.floor(this.logo.x),
+                            y: Math.floor(this.logo.y)
+                        });
+                    }
                 }
             });
         }

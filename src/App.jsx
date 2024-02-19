@@ -4,21 +4,17 @@ import { PhaserGame } from './game/PhaserGame';
 
 function App ()
 {
-    const [logoPosition, setLogoPosition] = useState({ x: 0, y: 0 });
+    // The sprite can only be moved in the MainMenu Scene
     const [canMoveLogo, setCanMoveLogo] = useState(true);
-
-    // Phaser game instance
-    const [scene, setScene] = useState(null);
-
+    
+    //  References to the PhaserGame component (game and scene are exposed)
     const phaserRef = useRef();
-
-    // Update the current active scene
-    const setCurrentActiveScene = (scene) => {
-        setScene(scene);
-        setCanMoveLogo(scene.scene.key !== 'MainMenu');
-    }
+    const [logoPosition, setLogoPosition] = useState({ x: 0, y: 0 });
 
     const changeScene = () => {
+
+        const scene = phaserRef.current.scene;
+
         if (scene)
         {
             scene.changeScene();
@@ -26,8 +22,12 @@ function App ()
     }
 
     const moveSprite = () => {
+
+        const scene = phaserRef.current.scene;
+
         if (scene && scene.scene.key === 'MainMenu')
         {
+            // Get the update logo position
             scene.moveLogo(({ x, y }) => {
 
                 setLogoPosition({ x, y });
@@ -37,6 +37,9 @@ function App ()
     }
 
     const addSprite = () => {
+
+        const scene = phaserRef.current.scene;
+
         if (scene)
         {
             // Add more stars
@@ -59,22 +62,27 @@ function App ()
         }
     }
 
+    // Event emitted from the PhaserGame component
+    const currentScene = (scene) => {
+        setCanMoveLogo(scene.scene.key !== 'MainMenu');
+    }
+
     return (
         <div id="app">
-            <PhaserGame ref={phaserRef} currentActiveScene={setCurrentActiveScene} />
+            <PhaserGame ref={phaserRef} currentActiveScene={currentScene} />
             <div>
                 <div>
-                    <button className="button-change-scene" onClick={changeScene}>Change Scene</button>
+                    <button className="button" onClick={changeScene}>Change Scene</button>
                 </div>
                 <div>
-                    <button disabled={canMoveLogo} className="button-change-scene" onClick={moveSprite}>Move main Logo</button>
+                    <button disabled={canMoveLogo} className="button" onClick={moveSprite}>Move main Logo</button>
                 </div>
-                <div className="margin-left">
+                <div className="spritePosition">
                     <span>Logo Position:</span>
                     <pre>{`{ x: ${logoPosition.x}, y: ${logoPosition.y} }`}</pre>
                 </div>
                 <div>
-                    <button className="button-change-scene" onClick={addSprite}>Add stars</button>
+                    <button className="button" onClick={addSprite}>Add stars</button>
                 </div>
             </div>
         </div>
