@@ -124,9 +124,6 @@ const ReactComponent = () => {
     );
 
 }
-
-
-
 ```
 
 In the code above, you can get a reference to the current Phaser Game instance and the current Scene by calling `ref()`.
