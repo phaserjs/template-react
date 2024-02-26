@@ -1,5 +1,6 @@
-import Phaser from 'phaser';
 import { useRef, useState } from 'react';
+
+import Phaser from 'phaser';
 import { PhaserGame } from './game/PhaserGame';
 
 function App ()
@@ -75,14 +76,13 @@ function App ()
                     <button className="button" onClick={changeScene}>Change Scene</button>
                 </div>
                 <div>
-                    <button disabled={canMoveLogo} className="button" onClick={moveSprite}>Move main Logo</button>
+                    <button disabled={canMoveLogo} className="button" onClick={moveSprite}>Toggle Movement</button>
                 </div>
-                <div className="spritePosition">
-                    <span>Logo Position:</span>
-                    <pre>{`{ x: ${logoPosition.x}, y: ${logoPosition.y} }`}</pre>
+                <div className="spritePosition">Sprite Position:
+                    <pre>{`{\n  x: ${logoPosition.x}\n  y: ${logoPosition.y}\n}`}</pre>
                 </div>
                 <div>
-                    <button className="button" onClick={addSprite}>Add stars</button>
+                    <button className="button" onClick={addSprite}>Add New Sprite</button>
                 </div>
             </div>
         </div>
