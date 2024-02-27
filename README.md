@@ -106,10 +106,12 @@ You don't have to emit this event if you don't need to access the specific scene
 Here's an example of how to access Phaser data for use in a React Component:
 
 ```js
+import { useRef } from 'react';
+
 // In a parent component
 const ReactComponent = () => {
 
-    const phaserRef = ref(); // you can access to this ref from phaserRef.current
+    const phaserRef = useRef(); // you can access to this ref from phaserRef.current
 
     const onCurrentActiveScene = (scene) => {
     
@@ -126,9 +128,9 @@ const ReactComponent = () => {
 }
 ```
 
-In the code above, you can get a reference to the current Phaser Game instance and the current Scene by calling `ref()`.
+In the code above, you can get a reference to the current Phaser Game instance and the current Scene by creating a reference with `useRef()` and assign to PhaserGame component.
 
-From this state reference, the game instance is available via `toRaw(phaserRef.value.game)` and the most recently active Scene via `toRaw(phaserRef.value.scene)`
+From this state reference, the game instance is available via `phaserRef.current.game` and the most recently active Scene via `phaserRef.current.scene`.
 
 The `onCurrentActiveScene` callback will also be invoked whenever the the Phaser Scene changes, as long as you emit the event via the EventBus, as outlined above.
 
