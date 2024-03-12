@@ -3,7 +3,8 @@ import { Scene } from 'phaser';
 
 export class MainMenu extends Scene
 {
-    logoTween;
+    logoTween: Phaser.Tweens.Tween | null = null;
+    logo!: Phaser.GameObjects.Image;
 
     constructor ()
     {
@@ -36,7 +37,7 @@ export class MainMenu extends Scene
         this.scene.start('Game');
     }
 
-    moveLogo (reactCallback)
+    moveLogo (reactCallback: (position: { x: number, y: number }) => void)
     {
         if (this.logoTween)
         {

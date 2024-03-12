@@ -23,7 +23,7 @@ export default defineConfig({
         react(),
         phasermsg()
     ],
-    logLevel: 'warning',
+    logLevel: 'info',
     build: {
         rollupOptions: {
             output: {

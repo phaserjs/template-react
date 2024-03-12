@@ -38,21 +38,21 @@ We have provided a default project structure to get you started. This is as foll
 
 - `index.html` - A basic HTML page to contain the game.
 - `src` - Contains the React client source code.
-- `src/main.jsx` - The main **React** entry point. This bootstraps the React application.
-- `src/App.jsx` - The main React component.
-- `src/game/PhaserGame.jsx` - The React component that initializes the Phaser Game and serve like a bridge between React and Phaser.
-- `src/game/EventBus.js` - A simple event bus to communicate between React and Phaser.
+- `src/main.tsx` - The main **React** entry point. This bootstraps the React application.
+- `src/App.tsx` - The main React component.
+- `src/game/PhaserGame.tsx` - The React component that initializes the Phaser Game and serve like a bridge between React and Phaser.
+- `src/game/EventBus.ts` - A simple event bus to communicate between React and Phaser.
 - `src/game` - Contains the game source code.
-- `src/game/main.jsx` - The main **game** entry point. This contains the game configuration and start the game.
+- `src/game/main.tsx` - The main **game** entry point. This contains the game configuration and start the game.
 - `src/game/scenes/` - The Phaser Scenes are in this folder.
 - `public/style.css` - Some simple CSS rules to help with page layout.
 - `public/assets` - Contains the static assets used by the game.
 
 ## React Bridge
 
-The `PhaserGame.jsx` component is the bridge between React and Phaser. It initializes the Phaser game and passes events between the two.
+The `PhaserGame.tsx` component is the bridge between React and Phaser. It initializes the Phaser game and passes events between the two.
 
-To communicate between React and Phaser, you can use the **EventBus.js** file. This is a simple event bus that allows you to emit and listen for events from both React and Phaser.
+To communicate between React and Phaser, you can use the **EventBus.ts** file. This is a simple event bus that allows you to emit and listen for events from both React and Phaser.
 
 ```js
 // In React

@@ -21,15 +21,17 @@
         "vite"
     ],
     "scripts": {
-        "dev": "vite --config vite/config.dev.mjs",
-        "build": "vite build --config vite/config.prod.mjs"
+        "dev": "vite --config vite/config.dev.ts",
+        "build": "vite build --config vite/config.prod.ts"
     },
     "dependencies": {
         "phaser": "^3.80.1",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "typescript": "^5.4.2"
     },
     "devDependencies": {
+        "@types/node": "^20.11.26",
         "@types/react": "^18.2.58",
         "@types/react-dom": "^18.2.19",
         "@vitejs/plugin-react": "^4.2.1",
