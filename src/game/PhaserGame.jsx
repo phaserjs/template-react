@@ -38,9 +38,9 @@ export const PhaserGame = forwardRef(function PhaserGame ({ currentActiveScene }
             if (currentActiveScene instanceof Function)
             {
                 currentActiveScene(currentScene);
-                ref.current.scene = currentScene;
             }
-
+            ref.current.scene = currentScene;
+            
         });
 
         return () => {
