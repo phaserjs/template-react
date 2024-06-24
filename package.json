@@ -1,7 +1,7 @@
 {
     "name": "template-react",
     "description": "A Phaser 3 project template that demonstrates React communication and uses Vite for bundling.",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "type": "module",
     "repository": {
         "type": "git",
@@ -25,19 +25,19 @@
         "build": "vite build --config vite/config.prod.mjs"
     },
     "dependencies": {
-        "phaser": "^3.80.1",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "phaser": "3.80.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
     },
     "devDependencies": {
-        "@types/react": "^18.2.58",
-        "@types/react-dom": "^18.2.19",
-        "@vitejs/plugin-react": "^4.2.1",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "@vitejs/plugin-react": "^4.3.1",
         "eslint": "^8.57.0",
-        "eslint-plugin-react": "^7.33.2",
-        "eslint-plugin-react-hooks": "^4.6.0",
-        "eslint-plugin-react-refresh": "^0.4.5",
+        "eslint-plugin-react": "^7.34.2",
+        "eslint-plugin-react-hooks": "^4.6.2",
+        "eslint-plugin-react-refresh": "^0.4.7",
         "terser": "^5.28.1",
-        "vite": "^5.1.4"
+        "vite": "^5.3.1"
     }
 }
