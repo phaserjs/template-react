@@ -13,6 +13,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.aviatorDashboard{
+    display: flex;
+    align-items: center;
+}
+
+.aviatorDashboard > div{
+    display: flex;
+    flex-direction: column;
 }
 
 .spritePosition {
