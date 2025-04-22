@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
 import Phaser from 'phaser';
-import { PhaserGame } from './game/PhaserGame';
+import { PhaserGame } from './PhaserGame';
 
 function App ()
 {
